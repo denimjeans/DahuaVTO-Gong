@@ -143,6 +143,7 @@ while (1)
 			printc(databuf, ru);
 		}
 		else if (ru==16){
+			// ru==16???? ru what? I know, that's a really ugly workaround, :-) but do you know something better?
 			//printf("Reading datagram message...OK.\n");
 			printf("The size of message from multicast server is: %d bytes\r\n", ru);
 			printc(databuf, ru);

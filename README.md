@@ -1,5 +1,5 @@
 # DahuaVTO-Gong
-A small utiliy or workaround to get the VTO ring information.
+A small utiliy or workaround to get the VTO ring information and the perform a script with the desired commands.
 
 compile with 
 main.c -o mcl

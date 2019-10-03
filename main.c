@@ -18,7 +18,7 @@
 #include <unistd.h> // for close
  
 #define SCRIPT "/root/bin/door_bell.sh"
-#define VERSION "0.3"
+#define VERSION "0.4"
 
 struct sockaddr_in localSock;
 struct ip_mreq group;

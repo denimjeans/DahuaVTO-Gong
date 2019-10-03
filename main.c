@@ -4,6 +4,7 @@
  * Modified by: Frédéric Bastien (25/03/04)
  * and now modified by Oktay Oeztueter (12/19/2018), maybe not the best style of programming, but works :)
  * to compile without warning and work correctly
+ * v0.4: fixed script issue, you can type now ./mcl YOUR_IP [OPTIONAL: PATH_TO_YOUR_SCRIPT] [OPTIONAL: Any letter for debug]
  */
  
 #include <sys/types.h>
@@ -53,16 +54,16 @@ if(argc>=4){
 }
 if(argc<2)
 {
-	printf("%s %s\r\nusage:%s localIP [script default /root/bin/door_bell.sh] [debug]\r\n",argv[0],VERSION,argv[0]);
+	printf("%s %s\r\nusage:%s localIP [script default /root/bin/door_bell.sh] [debug any letter]\r\n",argv[0],VERSION,argv[0]);
 	exit(0);
 }
 
 
 printf("Local IP: %s\r\nScript: %s\r\n",argv[1],argc>2?argv[2]:SCRIPT);
 printf("sending test images, might take few seconds...\r\n");
-unsigned int s=system(SCRIPT);
+unsigned int s=system(argc>2?argv[2]:SCRIPT);
 if(s>0){
-	printf("Something went wrong with the userscript %s, please check if existing and executable [System:%d]\r\n",SCRIPT,s);
+	printf("Something went wrong with the userscript %s, please check if existing and executable [System:%d]\r\n",argc>2?argv[2]:SCRIPT,s);
 exit(0);
 }
 	//printf ("argc: %d\r\n",argc);
@@ -147,7 +148,7 @@ while (1)
 			//printf("Reading datagram message...OK.\n");
 			printf("The size of message from multicast server is: %d bytes\r\n", ru);
 			printc(databuf, ru);
-			system(SCRIPT);
+			system(argc>2?argv[2]:SCRIPT);
 		}
 		
 		

@@ -89,7 +89,7 @@ exit(1);
 }
 else
 printf("Setting SO_REUSEADDR...OK.\n");
-}
+} 
  
 /* Bind to the proper port number with the IP address */
 /* specified as INADDR_ANY. */
